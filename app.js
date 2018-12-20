@@ -10,7 +10,38 @@ app.set("view engine", "pug");
 
 // Home Route
 app.get("/", (req, res) => {
-    res.render("index");
+    let articles = [
+        {
+            id: 1,
+            title: "Article One",
+            author: "Brad Traversy",
+            body: "This is article one"
+        },
+        {
+            id: 2,
+            title: "Article two",
+            author: "Shiyu Wang",
+            body: "This is article one"
+        },
+        {
+            id: 3,
+            title: "Article Three",
+            author: "Brad Traversy",
+            body: "This is article one"
+        }
+    ];
+
+    res.render("index", {
+        title: "Hello",
+        articles: articles
+    });
+});
+
+// Add Route
+app.get("/articles/add", (req, res) => {
+    res.render("add_article", {
+        title: "Add Article"
+    });
 });
 
 // Start Server
