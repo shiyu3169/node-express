@@ -2,9 +2,18 @@ doctype html
 html
     head
         title Knowledgebase
+        link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css")
+        link(rel="stylesheet" href="/css/style.css")
     body
-        block content
-        br
-        hr
-        footer
-            p Copyright &copy; 2018
+        nav.site-header.sticky-top.py-1
+            .container.d-flex.flex-column.flex-md-row.justify-content-between
+                a.py-2.d-none.d-md-inline-block(href='/') Articles
+                a.py-2.d-none.d-md-inline-block(href='/articles/add') Add Article
+        .container
+            block content
+            br
+            hr
+            footer
+                p Copyright &copy; 2018
+    script(src="/bower_components/axios/dist/axios.js")
+    script(src="/js/main.js")
