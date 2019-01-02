@@ -5,9 +5,11 @@ const bodyParser = require("body-parser");
 const expressValidator = require("express-validator");
 const flash = require("connect-flash");
 const session = require("express-session");
+const passport = require("passport");
+const config = require("./config/database");
 
 mongoose.connect(
-  "mongodb://localhost/test",
+  config.database,
   {
     useNewUrlParser: true
   }
@@ -79,6 +81,17 @@ app.use(
     }
   })
 );
+
+// Passport Config
+require("./config/passport")(passport);
+//Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get("*", function(req, res, next) {
+  res.locals.user = req.user || null;
+  next();
+});
 
 // Set Public Folder
 app.use(express.static(path.join(__dirname, "public")));
