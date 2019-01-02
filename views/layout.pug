@@ -8,8 +8,8 @@ html
         nav.site-header.sticky-top.py-1
             .container.d-flex.flex-column.flex-md-row.justify-content-between
                 a.py-2.d-none.d-md-inline-block(href='/') Articles
-                a.py-2.d-none.d-md-inline-block(href='/articles/add') Add Article
                 if user
+                    a.py-2.d-none.d-md-inline-block(href='/articles/add') Add Article
                     a.py-2.d-none.d-md-inline-block(href='/users/logout') Logout
                 else
                     a.py-2.d-none.d-md-inline-block(href='/users/login') Login
